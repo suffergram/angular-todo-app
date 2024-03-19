@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Status } from '../../../types/status';
 import { Task } from '../../../types/task';
+import { ManageListService } from '../../manage-list.service';
 
 @Component({
   selector: 'app-task',
@@ -10,6 +10,8 @@ import { Task } from '../../../types/task';
   styleUrl: './task.component.scss',
 })
 export class TaskComponent {
+  constructor(public manageListService: ManageListService) {}
+
   @Input()
   task!: Task;
 }

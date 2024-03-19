@@ -1,4 +1,7 @@
-<li class="task">
-  <p>{{ task.title }}</p>
-  <p>{{ task.status }}</p>
+<li [class]="['task', task.status]">
+  <div>
+    <p class="title">{{ task.title }}</p>
+    <p class="status">{{ task.status }}</p>
+  </div>
+  <button (click)="manageListService.removeTask(task.id)">☓</button>
 </li>

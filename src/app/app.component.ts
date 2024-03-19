@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TaskComponent } from './modules/task/task.component';
 import { NgFor } from '@angular/common';
-import { tasks } from './tasks';
+import { ManageListService } from './manage-list.service';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +12,5 @@ import { tasks } from './tasks';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  public tasks = tasks;
+  constructor(public manageListService: ManageListService) {}
 }

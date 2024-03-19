@@ -1,7 +1,54 @@
 .task {
   list-style-type: none;
+  position: relative;
+  padding: 10px;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: default;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 
   p {
     margin: 0;
+  }
+
+  .status {
+    font-size: 0.9em;
+    font-style: italic;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
+.common {
+  .status {
+    color: lightblue;
+  }
+}
+
+.important {
+  .status {
+    color: lightcoral;
+  }
+}
+
+.completed {
+  .title {
+    text-decoration: line-through;
+    color: lightgray;
+  }
+
+  .status {
+    color: gray;
   }
 }

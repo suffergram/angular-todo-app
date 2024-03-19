@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { tasks } from './tasks';
 import { Task } from '../types/task';
 import { Status } from '../types/status';
 
@@ -9,21 +8,33 @@ import { Status } from '../types/status';
 export class ManageListService {
   constructor() {}
 
-  tasks: Task[] = tasks;
+  public tasks: Task[] = [
+    {
+      id: 0,
+      title: 'Купить продукты',
+      status: Status.Common,
+    },
+    {
+      id: 1,
+      title: 'Сделать домашку',
+      status: Status.Important,
+    },
+    {
+      id: 2,
+      title: 'Покормить кота',
+      status: Status.Completed,
+    },
+  ];
 
-  getTasks() {
-    return this.tasks;
-  }
-
-  addTask(title: string, status: Status) {
+  public addTask(title: string, status: Status) {
     this.tasks = [...this.tasks, { id: this.tasks.length, title, status }];
   }
 
-  removeTask(id: number) {
+  public removeTask(id: number) {
     this.tasks = this.tasks.filter((item) => item.id !== id);
   }
 
-  changeStatus(id: number, status: Status) {
+  public changeStatus(id: number, status: Status) {
     this.tasks = this.tasks.map((item) => {
       if (item.id === id) item.status = status;
       return item;
