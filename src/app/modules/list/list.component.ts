@@ -12,4 +12,8 @@ import { ManageListService } from '../../manage-list.service';
 })
 export class ListComponent {
   constructor(public manageListService: ManageListService) {}
+
+  public removeTask(id: number) {
+    this.manageListService.removeTask(id);
+  }
 }

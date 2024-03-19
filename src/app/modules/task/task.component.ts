@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../../types/task';
-import { ManageListService } from '../../manage-list.service';
 
 @Component({
   selector: 'app-task',
@@ -10,8 +9,11 @@ import { ManageListService } from '../../manage-list.service';
   styleUrl: './task.component.scss',
 })
 export class TaskComponent {
-  constructor(public manageListService: ManageListService) {}
+  constructor() {}
 
   @Input()
   task!: Task;
+
+  @Output()
+  public removeTask = new EventEmitter();
 }

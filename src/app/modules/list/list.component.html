@@ -2,6 +2,10 @@
   <h2 class="list-title">Todo List</h2>
   <p *ngIf="manageListService.tasks.length === 0">List is empty</p>
   <ul *ngIf="manageListService.tasks.length > 0">
-    <app-task *ngFor="let task of manageListService.tasks" [task]="task" />
+    <app-task
+      *ngFor="let task of manageListService.tasks"
+      [task]="task"
+      (removeTask)="removeTask($event)"
+    />
   </ul>
 </section>
