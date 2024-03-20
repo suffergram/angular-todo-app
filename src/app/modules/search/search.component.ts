@@ -26,7 +26,6 @@ export class SearchComponent {
       status,
     };
 
-    console.log(params);
     this.filterTasks.emit(params);
   }
 }

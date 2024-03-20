@@ -7,6 +7,7 @@
       *ngFor="let task of tasks"
       [task]="task"
       (removeTask)="removeTask($event)"
+      (changeStatus)="changeStatus($event)"
     />
   </ul>
   <app-list-tool (addTask)="addTask($event)" />

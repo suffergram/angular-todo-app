@@ -3,6 +3,10 @@ import { Task } from '../types/task';
 import { Status } from '../types/status';
 import { Filter } from '../types/filter';
 
+type NewStatus = {
+  [key: string]: Status;
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,7 +17,7 @@ export class ManageListService {
     {
       id: 0,
       title:
-        'Купить продукты Купить продукты Купить продукты Купить продукты Купить продукты Купить продукты Купить продукты Купить продукты Купить продукты',
+        'Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды',
       status: Status.Common,
     },
     {
@@ -23,7 +27,7 @@ export class ManageListService {
     },
     {
       id: 2,
-      title: 'Покормить кота',
+      title: 'Погладить кота',
       status: Status.Completed,
     },
   ];
@@ -31,6 +35,12 @@ export class ManageListService {
   public filter: Filter = {
     search: '',
     status: Status.All,
+  };
+
+  public newStatus: NewStatus = {
+    [Status.Common]: Status.Important,
+    [Status.Important]: Status.Completed,
+    [Status.Completed]: Status.Common,
   };
 
   public getTasks() {
@@ -49,9 +59,10 @@ export class ManageListService {
 
   public changeStatus(id: number, status: Status) {
     this.tasks = this.tasks.map((item) => {
-      if (item.id === id) item.status = status;
+      if (item.id === id) item.status = this.newStatus[status];
       return item;
     });
+    return this.filterTasks();
   }
 
   public filterTasks() {

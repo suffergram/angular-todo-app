@@ -27,4 +27,8 @@ export class ListComponent {
   public addTask(params: { title: string; status: Status }) {
     this.tasks = this.manageListService.addTask(params);
   }
+
+  public changeStatus(data: { id: number; status: Status }) {
+    this.tasks = this.manageListService.changeStatus(data.id, data.status);
+  }
 }
