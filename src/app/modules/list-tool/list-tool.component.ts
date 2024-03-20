@@ -19,7 +19,7 @@ export class ListToolComponent {
     this.addTask.emit(value);
 
     form.resetForm({
-      status: Status.Common,
+      status: value.status,
     });
   }
 

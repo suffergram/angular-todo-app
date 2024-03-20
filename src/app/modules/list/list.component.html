@@ -1,9 +1,10 @@
 <section class="list-container">
   <h2 class="list-title">Todo List</h2>
-  <p *ngIf="manageListService.tasks.length === 0">List is empty</p>
-  <ul *ngIf="manageListService.tasks.length > 0">
+  <app-search [searchValue]="searchValue" (filterTasks)="filterTasks($event)" />
+  <p *ngIf="tasks.length === 0">List is empty</p>
+  <ul *ngIf="tasks.length > 0">
     <app-task
-      *ngFor="let task of manageListService.tasks"
+      *ngFor="let task of tasks"
       [task]="task"
       (removeTask)="removeTask($event)"
     />
