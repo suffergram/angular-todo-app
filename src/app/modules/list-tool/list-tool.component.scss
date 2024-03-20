@@ -1,0 +1,58 @@
+.list-tool-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .form-row {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .form-label {
+    font-style: italic;
+    opacity: 0.5;
+    font-size: 0.9em;
+    cursor: pointer;
+
+    &:has(> input:checked) {
+      opacity: 1;
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  .form-task {
+    flex: 1;
+    height: 24px;
+    padding: 1px 4px;
+    border: none;
+    box-sizing: border-box;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    height: 24px;
+    aspect-ratio: 1 / 1;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+
+  .common {
+    color: lightblue;
+  }
+
+  .important {
+    color: lightcoral;
+  }
+
+  .completed {
+    color: lightgray;
+  }
+}

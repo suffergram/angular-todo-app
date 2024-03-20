@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { TaskComponent } from '../task/task.component';
-import { NgFor, NgIf } from '@angular/common';
 import { ManageListService } from '../../manage-list.service';
+import { Status } from '../../../types/status';
 
 @Component({
   selector: 'app-list',
-  standalone: true,
-  imports: [TaskComponent, NgFor, NgIf],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
@@ -15,5 +12,9 @@ export class ListComponent {
 
   public removeTask(id: number) {
     this.manageListService.removeTask(id);
+  }
+
+  public addTask(params: { title: string; status: Status }) {
+    this.manageListService.addTask(params);
   }
 }

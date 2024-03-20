@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ListComponent } from './modules/list/list.component';
+import { ListModule } from './modules/list/list.module';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, ListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

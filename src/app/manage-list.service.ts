@@ -27,7 +27,7 @@ export class ManageListService {
     },
   ];
 
-  public addTask(title: string, status: Status) {
+  public addTask({ title, status }: { title: string; status: Status }) {
     this.tasks = [...this.tasks, { id: this.tasks.length, title, status }];
   }
 

@@ -1,0 +1,40 @@
+<form
+  class="list-tool-container"
+  #form="ngForm"
+  novalidate
+  (submit)="onFormSubmit(form)"
+>
+  <div class="form-row">
+    <label [class]="['form-label', Status.Common]">
+      <input
+        type="radio"
+        name="status"
+        [value]="Status.Common"
+        [ngModel]="status"
+      />
+      {{ Status.Common }}
+    </label>
+    <label [class]="['form-label', Status.Important]">
+      <input
+        type="radio"
+        name="status"
+        [value]="Status.Important"
+        [ngModel]="status"
+      />
+      {{ Status.Important }}
+    </label>
+    <label [class]="['form-label', Status.Completed]">
+      <input
+        type="radio"
+        name="status"
+        [value]="Status.Completed"
+        [ngModel]="status"
+      />
+      {{ Status.Completed }}
+    </label>
+  </div>
+  <div class="form-row">
+    <input class="form-task" name="title" type="text" ngModel />
+    <button type="submit">+</button>
+  </div>
+</form>
