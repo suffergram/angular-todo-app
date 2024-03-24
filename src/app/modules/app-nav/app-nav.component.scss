@@ -1,0 +1,15 @@
+.app-nav-ul {
+  display: flex;
+  gap: 16px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.app-nav-link {
+  color: #ffffff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

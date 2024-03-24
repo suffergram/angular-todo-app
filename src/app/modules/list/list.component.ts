@@ -2,9 +2,15 @@ import { Component } from '@angular/core';
 import { ManageListService } from '../../manage-list.service';
 import { Status } from '../../../types/status';
 import { Filter } from '../../../types/filter';
+import { SearchModule } from '../search/search.module';
+import { TaskModule } from '../task/task.module';
+import { ListToolModule } from '../list-tool/list-tool.module';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-list',
+  standalone: true,
+  imports: [SearchModule, TaskModule, ListToolModule, NgIf, NgFor],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
