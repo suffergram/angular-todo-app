@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Task } from '../../types/task';
 import { Status } from '../../types/status';
 import { Filter } from '../../types/filter';
+import { HttpClient } from '@angular/common/http';
 
 type NewStatus = {
   [key: string]: Status;
@@ -11,26 +12,9 @@ type NewStatus = {
   providedIn: 'root',
 })
 export class ManageListService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  public tasks: Task[] = [
-    {
-      id: 0,
-      title:
-        'Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды Купить еды',
-      status: Status.Common,
-    },
-    {
-      id: 1,
-      title: 'Сделать домашку',
-      status: Status.Important,
-    },
-    {
-      id: 2,
-      title: 'Погладить кота',
-      status: Status.Completed,
-    },
-  ];
+  public tasks: Task[] = [];
 
   public filter: Filter = {
     search: '',
@@ -42,6 +26,14 @@ export class ManageListService {
     [Status.Important]: Status.Completed,
     [Status.Completed]: Status.Common,
   };
+
+  public fetchTasks() {
+    return this.http.get('../../assets/todo-list.json');
+  }
+
+  public setTasks(data: Task[]) {
+    this.tasks = data;
+  }
 
   public getTasks() {
     return this.filterTasks();

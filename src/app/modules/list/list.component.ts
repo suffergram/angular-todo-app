@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ManageListService } from '../../services/manage-list.service';
 import { Status } from '../../../types/status';
 import { Filter } from '../../../types/filter';
@@ -6,6 +6,7 @@ import { SearchModule } from '../search/search.module';
 import { TaskModule } from '../task/task.module';
 import { ListToolModule } from '../list-tool/list-tool.module';
 import { NgFor, NgIf } from '@angular/common';
+import { Task } from '../../../types/task';
 
 @Component({
   selector: 'app-list',
@@ -14,10 +15,18 @@ import { NgFor, NgIf } from '@angular/common';
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   constructor(public manageListService: ManageListService) {}
 
   public tasks = this.manageListService.getTasks();
+
+  ngOnInit(): void {
+    this.manageListService.fetchTasks().subscribe((data: Object) => {
+      const tasks = data as Task[];
+      this.manageListService.setTasks(tasks);
+      this.tasks = tasks;
+    });
+  }
 
   public searchValue = '';
 
