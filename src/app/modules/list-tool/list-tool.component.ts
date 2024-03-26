@@ -13,14 +13,20 @@ export class ListToolComponent {
 
   public status: Status = Status.Common;
 
+  public selectOptions = [{ value: Status.Common, name: Status.Common }];
+
   public onFormSubmit(form: NgForm) {
-    const value = form.form.value;
+    const value = {
+      status: form.form.value.status,
+      title: form.form.value.title?.trim(),
+    };
 
-    this.addTask.emit(value);
-
-    form.resetForm({
-      status: value.status,
-    });
+    if (value.title) {
+      this.addTask.emit(value);
+      form.resetForm({
+        status: value.status,
+      });
+    }
   }
 
   public Status = Status;

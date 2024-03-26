@@ -1,46 +1,23 @@
-<input
-  class="search"
-  type="search"
-  placeholder="search"
-  [value]="searchValue"
-  [(ngModel)]="searchValue"
-  (change)="onChange(searchValue, status)"
-/>
-<fieldset class="filter" (change)="onChange(searchValue, status)">
-  <label [class]="['filter-label', Status.All]">
-    <input
-      type="radio"
-      name="status"
-      [value]="Status.All"
-      [(ngModel)]="status"
-    />
-    {{ Status.All }}
-  </label>
-  <label [class]="['filter-label', Status.Common]">
-    <input
-      type="radio"
-      name="status"
-      [value]="Status.Common"
-      [(ngModel)]="status"
-    />
-    {{ Status.Common }}
-  </label>
-  <label [class]="['filter-label', Status.Important]">
-    <input
-      type="radio"
-      name="status"
-      [value]="Status.Important"
-      [(ngModel)]="status"
-    />
-    {{ Status.Important }}
-  </label>
-  <label [class]="['filter-label', Status.Completed]">
-    <input
-      type="radio"
-      name="status"
-      [value]="Status.Completed"
-      [(ngModel)]="status"
-    />
-    {{ Status.Completed }}
-  </label>
-</fieldset>
+<div class="search-container">
+  <input
+    class="search"
+    type="search"
+    placeholder="search tasks"
+    [(ngModel)]="searchValue"
+    (change)="onChange(searchValue, status)"
+  />
+  <fieldset class="filter" (change)="onChange(searchValue, status)">
+    <label
+      *ngFor="let currentStatus of Status | keyvalue"
+      [class]="['filter-label', currentStatus.value]"
+    >
+      <input
+        type="radio"
+        name="status"
+        [value]="currentStatus.value"
+        [(ngModel)]="status"
+      />
+      {{ currentStatus.value }}
+    </label>
+  </fieldset>
+</div>

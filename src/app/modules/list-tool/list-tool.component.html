@@ -1,40 +1,30 @@
 <form
-  class="list-tool-container"
+  class="list-tool-form"
   #form="ngForm"
   novalidate
   (submit)="onFormSubmit(form)"
 >
-  <div class="form-row">
-    <label [class]="['form-label', Status.Common]">
-      <input
-        type="radio"
-        name="status"
-        [value]="Status.Common"
-        [ngModel]="status"
-      />
+  <select
+    [class]="['list-tool-select', status]"
+    name="status"
+    [(ngModel)]="status"
+  >
+    <option [class]="Status.Common" [value]="Status.Common">
       {{ Status.Common }}
-    </label>
-    <label [class]="['form-label', Status.Important]">
-      <input
-        type="radio"
-        name="status"
-        [value]="Status.Important"
-        [ngModel]="status"
-      />
+    </option>
+    <option [class]="Status.Important" [value]="Status.Important">
       {{ Status.Important }}
-    </label>
-    <label [class]="['form-label', Status.Completed]">
-      <input
-        type="radio"
-        name="status"
-        [value]="Status.Completed"
-        [ngModel]="status"
-      />
+    </option>
+    <option [class]="Status.Completed" [value]="Status.Completed">
       {{ Status.Completed }}
-    </label>
-  </div>
-  <div class="form-row">
-    <input class="form-task" name="title" type="text" ngModel />
-    <button type="submit">+</button>
-  </div>
+    </option>
+  </select>
+  <input
+    class="form-input-task"
+    name="title"
+    type="text"
+    placeholder="new task"
+    ngModel
+  />
+  <button class="form-submit-button" type="submit">Add</button>
 </form>

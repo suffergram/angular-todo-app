@@ -1,43 +1,39 @@
-.list-tool-container {
+.list-tool-form {
   margin-top: 16px;
+  align-items: stretch;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  width: 800px;
 
-  .form-row {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .form-label {
+  .list-tool-select {
     font-style: italic;
-    opacity: 0.5;
-    font-size: 0.9em;
+    border: none;
     cursor: pointer;
-
-    &:has(> input:checked) {
-      opacity: 1;
-    }
-
-    input {
-      display: none;
-    }
+    background-color: #1b1b1b;
   }
 
-  .form-task {
+  .form-input-task {
     flex: 1;
     height: 24px;
     padding: 1px 4px;
     border: none;
     box-sizing: border-box;
+    background-color: transparent;
+    color: white;
+    border-bottom: 1px solid gray;
+
+    &:focus {
+      outline: none;
+    }
   }
 
-  button {
+  .form-submit-button {
     cursor: pointer;
     border: none;
     padding: 0;
     height: 24px;
-    aspect-ratio: 1 / 1;
+    padding: 0 0.5rem;
+    background-color: #274abd;
+    color: #ffffff;
   }
 
   .common {
