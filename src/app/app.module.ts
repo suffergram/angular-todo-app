@@ -7,6 +7,7 @@ import { routes } from './app.routes';
 import { LoginComponent } from './modules/login/login.component';
 import { AppNavComponent } from './modules/app-nav/app-nav.component';
 import { InfoComponent } from './modules/info/info.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { InfoComponent } from './modules/info/info.component';
     AppNavComponent,
     LoginComponent,
     InfoComponent,
+    HttpClientModule,
   ],
   exports: [RouterModule],
   bootstrap: [AppComponent],
