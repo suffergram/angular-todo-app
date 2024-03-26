@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Task } from '../types/task';
-import { Status } from '../types/status';
-import { Filter } from '../types/filter';
+import { Task } from '../../types/task';
+import { Status } from '../../types/status';
+import { Filter } from '../../types/filter';
 
 type NewStatus = {
   [key: string]: Status;

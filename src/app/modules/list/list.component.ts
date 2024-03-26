@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ManageListService } from '../../manage-list.service';
+import { ManageListService } from '../../services/manage-list.service';
 import { Status } from '../../../types/status';
 import { Filter } from '../../../types/filter';
 import { SearchModule } from '../search/search.module';
