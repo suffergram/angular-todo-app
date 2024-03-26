@@ -1,0 +1,27 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  .login-user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    .login-label {
+      height: 2rem;
+      display: flex;
+      align-items: flex-end;
+
+      & > input {
+        border: none;
+        background-color: transparent;
+        color: #ffffff;
+        border-bottom: 1px solid gray;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}
