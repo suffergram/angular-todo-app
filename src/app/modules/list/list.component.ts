@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { ManageListService } from '../../services/manage-list.service';
 import { Status } from '../../../types/status';
 import { Filter } from '../../../types/filter';
@@ -15,17 +15,13 @@ import { Task } from '../../../types/task';
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements DoCheck {
   constructor(public manageListService: ManageListService) {}
 
-  public tasks = this.manageListService.getTasks();
+  public tasks: Task[] = [];
 
-  ngOnInit(): void {
-    this.manageListService.fetchTasks().subscribe((data: Object) => {
-      const tasks = data as Task[];
-      this.manageListService.setTasks(tasks);
-      this.tasks = tasks;
-    });
+  ngDoCheck(): void {
+    this.tasks = this.manageListService.getTasks();
   }
 
   public searchValue = '';
