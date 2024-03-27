@@ -47,4 +47,8 @@ export class AuthService {
 
     return null;
   }
+
+  get token() {
+    return localStorage.getItem('todo_auth_token');
+  }
 }
