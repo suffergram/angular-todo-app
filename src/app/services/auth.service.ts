@@ -40,6 +40,6 @@ export class AuthService {
       return JSON.parse(jsonPayload);
     }
 
-    return {};
+    return null;
   }
 }
