@@ -9,6 +9,7 @@ import { AppNavComponent } from './modules/app-nav/app-nav.component';
 import { InfoComponent } from './modules/info/info.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { RegistrationComponent } from './modules/registration/registration.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     RouterModule.forRoot(routes),
     AppNavComponent,
     LoginComponent,
+    RegistrationComponent,
     InfoComponent,
     HttpClientModule,
   ],

@@ -51,4 +51,17 @@ export class AuthService {
   get token() {
     return localStorage.getItem('todo_auth_token');
   }
+
+  register(data: Object) {
+    return this.http
+      .post<{ token: string }>(`${this.baseUrl}/registration`, data)
+      .pipe(
+        map((res) => {
+          if (res.token) {
+            localStorage.setItem('todo_auth_token', res.token);
+          }
+          return null;
+        })
+      );
+  }
 }

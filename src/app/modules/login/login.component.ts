@@ -38,4 +38,8 @@ export class LoginComponent implements OnDestroy, DoCheck {
   public onLogOut() {
     this.authService.logout();
   }
+
+  public onSignIn() {
+    this.router.navigate(['registration']);
+  }
 }
