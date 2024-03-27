@@ -1,14 +1,19 @@
 import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
+import { map } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private routes: Router) {}
+  constructor(
+    private http: HttpClient,
+    private routes: Router,
+    private location: Location
+  ) {}
 
   baseUrl: string = `${environment.backendOrigin}/auth`;
 
@@ -27,7 +32,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('todo_auth_token');
-    this.routes.navigate(['login']);
+    if (this.location.path() === '') this.routes.navigate(['login']);
   }
 
   getUser() {

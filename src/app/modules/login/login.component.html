@@ -1,4 +1,9 @@
-<form class="login-form" #form="ngForm" (submit)="onSubmit(form)">
+<form
+  *ngIf="!user; else logoutBlock"
+  class="login-form"
+  #form="ngForm"
+  (submit)="onSubmit(form)"
+>
   <div class="login-user-info">
     <label class="login-label">
       E-mail
@@ -11,3 +16,11 @@
   </div>
   <button type="submit" class="login-submit">Log In</button>
 </form>
+<ng-template #logoutBlock>
+  <div class="logout-user-info">
+    <p>
+      Logged in as <strong>{{ this.user.email.split("@")[0] }}</strong>
+    </p>
+    <button (click)="onLogOut()">Log out</button>
+  </div>
+</ng-template>

@@ -13,3 +13,14 @@
     text-decoration: underline;
   }
 }
+
+.app-nav-user {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  height: 50px;
+}

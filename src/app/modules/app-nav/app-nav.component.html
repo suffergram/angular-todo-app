@@ -13,3 +13,12 @@
     >
   </li>
 </ul>
+<div *ngIf="user; else loginBlock" class="app-nav-user">
+  <p>{{ username }}</p>
+  <button (click)="onLogOut()">Log out</button>
+</div>
+<ng-template #loginBlock>
+  <div class="app-nav-user">
+    <button (click)="onLogIn()">Log in</button>
+  </div>
+</ng-template>
